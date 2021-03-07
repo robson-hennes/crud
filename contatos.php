@@ -1,9 +1,12 @@
 <?php
 require __DIR__.'./vendor/autoload.php';
 
+use App\Classes\Contato;
+
 include_once 'src/Templates/header.php';
 include_once 'src/Templates/topbar.php';
 include_once 'src/Templates/sidebar.php';
+
 ?>
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
@@ -48,12 +51,13 @@ include_once 'src/Templates/sidebar.php';
                 if ($sql->rowCount() > 0) {
                     
                     foreach ($sql->fetchAll() as $contato) {
+                        $objContato = new Contato($contato['id'],$contato['nome'], $contato['email']);                                                            
                         echo '<tr>';
-                        echo '<td>'.$contato['id'].'</td>';
-                        echo '<td>'.$contato['nome'].'</td>';
-                        echo '<td>'.$contato['email'].'</td>';
-                        echo '<td><a class="btn btn-primary btn-sm" href="editar.php?id='.$contato['id'].'" role="button">Editar</a></td>';
-                        echo '<td><a class="btn btn-danger btn-sm" href="deletar.php?id='.$contato['id'].'" role="button">Deletar</a></td></td>';
+                        echo '<td>'.$objContato->getId().'</td>';
+                        echo '<td>'.$objContato->getNome().'</td>';
+                        echo '<td>'.$objContato->getEmail().'</td>';
+                        echo '<td><a class="btn btn-primary btn-sm" href="editar.php?id='.$objContato->getId().'" role="button">Editar</a></td>';
+                        echo '<td><a class="btn btn-danger btn-sm" href="deletar.php?id='.$objContato->getId().'" role="button">Deletar</a></td></td>';
                         echo '</tr>';
                     }
                    

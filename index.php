@@ -43,7 +43,7 @@ include_once 'src/Templates/sidebar.php';
         </div>
       </div>  
      <br>
-        <div class="row">
+       <!-- <div class="row">
               <div class="col">
                 <div class="card">
                 <img style="width:100px;" src="public/icons/svg/032-hierarchical structure.svg" class="card-img-top" alt="...">
@@ -74,7 +74,7 @@ include_once 'src/Templates/sidebar.php';
                   </div>
                 </div>
               </div>
-        </div>
+        </div> -->
      
   
     </main>
